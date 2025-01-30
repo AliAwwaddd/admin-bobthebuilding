@@ -1,0 +1,21 @@
+{
+  "editor.formatOnSave": true,
+  "workbench.sideBar.location": "right",
+  "prettier.printWidth": 100,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "typescript.preferences.importModuleSpecifier": "shortest",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.minimap.enabled": false,
+  "workbench.editor.customLabels.patterns": {
+    "**/app/**/page.*": "Page: ${dirname}"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.organizeImports": "explicit"
+  },
+
+  "codesnap.backgroundColor": "transparent",
+  "codesnap.boxShadow": "0 0 20px rgba(0, 0, 0, 0.5)",
+  "codesnap.containerPadding": "2rem",
+  "codesnap.shutterAction": "copy"
+}
