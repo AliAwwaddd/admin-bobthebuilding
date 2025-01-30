@@ -782,12 +782,3 @@ export {
   SidebarTrigger,
   useSidebar,
 }
-
-
-echo "# admin-bobthebuilding" >> README.md
-git init
-git add README.md
-git commit -m "prod build v2.0"
-git branch -M main
-git remote add origin https://github.com/AliAwwaddd/admin-bobthebuilding.git
-git push -u origin main

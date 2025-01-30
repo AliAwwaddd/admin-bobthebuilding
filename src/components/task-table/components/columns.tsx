@@ -3,8 +3,7 @@
 import { ColumnDef } from '@tanstack/react-table'
 
 import { Badge } from '@/components/ui/badge'
-import { Checkbox } from '@/components/ui/checkbox'
-
+// import { Checkbox } from '@/components/ui/checkbox'
 import { updateTaskStatusAction } from '@/actions/task'
 import {
   Select,
@@ -15,10 +14,11 @@ import {
 } from '@/components/ui/select'
 import { openDialog, updateTaskStatus } from '@/redux/slices/taskSlice'
 import { TaskStatus, workingPackageTaskType } from '@/types/task'
+import { Edit } from 'lucide-react'
 import { useDispatch } from 'react-redux'
 import { labels, statuses } from '../data/data'
 import { DataTableColumnHeader } from './data-table-column-header'
-import { DataTableRowActions } from './data-table-row-actions'
+// import { DataTableRowActions } from './data-table-row-actions'
 
 export const Columns: () => ColumnDef<workingPackageTaskType>[] = () => {
   const dispatch = useDispatch()
@@ -35,30 +35,30 @@ export const Columns: () => ColumnDef<workingPackageTaskType>[] = () => {
   }
 
   return [
-    {
-      id: 'select',
-      header: ({ table }) => (
-        <Checkbox
-          checked={
-            table.getIsAllPageRowsSelected() ||
-            (table.getIsSomePageRowsSelected() && 'indeterminate')
-          }
-          onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-          aria-label='Select all'
-          className='translate-y-[2px]'
-        />
-      ),
-      cell: ({ row }) => (
-        <Checkbox
-          checked={row.getIsSelected()}
-          onCheckedChange={(value) => row.toggleSelected(!!value)}
-          aria-label='Select row'
-          className='translate-y-[2px]'
-        />
-      ),
-      enableSorting: false,
-      enableHiding: false,
-    },
+    // {
+    //   id: 'select',
+    //   header: ({ table }) => (
+    //     <Checkbox
+    //       checked={
+    //         table.getIsAllPageRowsSelected() ||
+    //         (table.getIsSomePageRowsSelected() && 'indeterminate')
+    //       }
+    //       onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+    //       aria-label='Select all'
+    //       className='translate-y-[2px]'
+    //     />
+    //   ),
+    //   cell: ({ row }) => (
+    //     <Checkbox
+    //       checked={row.getIsSelected()}
+    //       onCheckedChange={(value) => row.toggleSelected(!!value)}
+    //       aria-label='Select row'
+    //       className='translate-y-[2px]'
+    //     />
+    //   ),
+    //   enableSorting: false,
+    //   enableHiding: false,
+    // },
     {
       accessorKey: 'name',
       header: ({ column }) => (
@@ -152,10 +152,13 @@ export const Columns: () => ColumnDef<workingPackageTaskType>[] = () => {
     {
       id: 'actions',
       cell: ({ row }) => (
-        <DataTableRowActions
-          row={row}
-          onEditTask={() => handleEditTask(row.original)}
-        />
+        // <DataTableRowActions
+        //   row={row}
+        //   onEditTask={() => handleEditTask(row.original)}
+        // />
+        <div onClick={() => handleEditTask(row.original)}>
+          <Edit />
+        </div>
       ),
     },
   ]

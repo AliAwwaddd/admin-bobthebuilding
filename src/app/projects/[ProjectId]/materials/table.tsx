@@ -16,7 +16,7 @@ import { ArrowUpDown, ChevronDown, MoreHorizontal } from 'lucide-react'
 import * as React from 'react'
 
 import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
+// import { Checkbox } from '@/components/ui/checkbox'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -38,35 +38,35 @@ import {
 import { materialTableType } from '@/types/material'
 
 export const columns: ColumnDef<materialTableType>[] = [
-  {
-    id: 'select',
-    header: ({ table }) => (
-      <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && 'indeterminate')
-        }
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label='Select all'
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label='Select row'
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    accessorKey: 'lv_position',
-    header: 'lv_position',
-    cell: ({ row }) => (
-      <div className='capitalize'>{row.getValue('lv_position')}</div>
-    ),
-  },
+  // {
+  //   id: 'select',
+  //   header: ({ table }) => (
+  //     <Checkbox
+  //       checked={
+  //         table.getIsAllPageRowsSelected() ||
+  //         (table.getIsSomePageRowsSelected() && 'indeterminate')
+  //       }
+  //       onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+  //       aria-label='Select all'
+  //     />
+  //   ),
+  //   cell: ({ row }) => (
+  //     <Checkbox
+  //       checked={row.getIsSelected()}
+  //       onCheckedChange={(value) => row.toggleSelected(!!value)}
+  //       aria-label='Select row'
+  //     />
+  //   ),
+  //   enableSorting: false,
+  //   enableHiding: false,
+  // },
+  // {
+  //   accessorKey: 'lv_position',
+  //   header: 'lv_position',
+  //   cell: ({ row }) => (
+  //     <div className='capitalize'>{row.getValue('lv_position')}</div>
+  //   ),
+  // },
   {
     accessorKey: 'name',
     header: ({ column }) => {
@@ -81,6 +81,13 @@ export const columns: ColumnDef<materialTableType>[] = [
       )
     },
     cell: ({ row }) => <div className='lowercase'>{row.getValue('name')}</div>,
+  },
+    {
+    accessorKey: 'lv_position',
+    header: 'lv_position',
+    cell: ({ row }) => (
+      <div className='capitalize'>{row.getValue('lv_position')}</div>
+    ),
   },
   {
     accessorKey: 'quantity',
@@ -252,10 +259,10 @@ export function MaterialsTable({ materials: data }: prop) {
         </Table>
       </div>
       <div className='flex items-center justify-end space-x-2 py-4'>
-        <div className='flex-1 text-sm text-muted-foreground'>
+        {/* <div className='flex-1 text-sm text-muted-foreground'>
           {table.getFilteredSelectedRowModel().rows.length} of{' '}
           {table.getFilteredRowModel().rows.length} row(s) selected.
-        </div>
+        </div> */}
         <div className='space-x-2'>
           <Button
             variant='outline'

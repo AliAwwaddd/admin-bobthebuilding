@@ -182,7 +182,7 @@ function TaskForm({ projectInfoForm, images, setImages }: props) {
             {loading && (
               <div className='mt-4 max-h-64 w-full overflow-hidden overflow-x-auto rounded-md border bg-gray-50 p-4'>
                 <div className='flex gap-4'>
-                  {Array(2)
+                  {Array(1)
                     .fill(null)
                     .map((_, index) => (
                       <div
@@ -214,13 +214,13 @@ function TaskForm({ projectInfoForm, images, setImages }: props) {
                           className='h-32 w-full rounded-md object-cover'
                         />
                       )}
-                      <button
+                      <div
                         onClick={() => handleRemoveEditedImage(index)}
-                        className='absolute right-2 top-2 rounded-full bg-red-500 p-1 text-white hover:bg-red-600'
+                        className='absolute right-2 top-2 flex h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-red-500 p-1 pt-2 text-white hover:bg-red-600'
                         title='Remove'
                       >
                         ✕
-                      </button>
+                      </div>
                     </div>
                   ))}
                 </div>
