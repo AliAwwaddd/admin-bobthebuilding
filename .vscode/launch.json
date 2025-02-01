@@ -10,9 +10,9 @@
       "request": "attach",
       "skipFiles": ["<node_internals>/**"],
       "type": "node",
-      "sourceMapPathOverrides": {
-        "/turbopack/[project]/*": "${webRoot}/*"
-      }
+      // "sourceMapPathOverrides": {
+      //   "/turbopack/[project]/*": "${webRoot}/*"
+      // }
       // "resolveSourceMapLocations": ["${workspaceFolder}/", "!/node_modules/**"]
     },
     {
@@ -21,9 +21,9 @@
       "name": "Next.js: debugging client side",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}",
-      "sourceMapPathOverrides": {
-        "/turbopack/[project]/*": "${webRoot}/*"
-      }
+      // "sourceMapPathOverrides": {
+      //   "/turbopack/[project]/*": "${webRoot}/*"
+      // }
       // "resolveSourceMapLocations": ["${workspaceFolder}/", "!/node_modules/**"]
     }
   ],

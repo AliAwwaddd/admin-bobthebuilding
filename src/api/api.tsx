@@ -1,3 +1,4 @@
+// import { auth } from '@/auth'
 import { auth } from '@/auth'
 import axios from 'axios'
 
@@ -12,7 +13,30 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: true,
 })
+
+// api.interceptors.request.use(async (config) => {
+//   let accessToken: string | undefined
+
+//   if (typeof window === 'undefined') {
+//     // ✅ Running on the server → Use cookies()
+//     accessToken = (await cookies()).get('access_token')?.value
+//   } else {
+//     // ✅ Running on the client → Rely on automatic cookie sending
+//     console.log('🚀 Running in the browser, relying on credentials.')
+//     config.withCredentials = true
+//   }
+
+//   if (accessToken) {
+//     console.log('🔑 Access Token:', accessToken)
+//     config.headers['Authorization'] = `Bearer ${accessToken}`
+//   } else {
+//     console.log('🚨 No Access Token Found!')
+//   }
+
+//   return config
+// })
 
 api.interceptors.request.use(
   async (config) => {
