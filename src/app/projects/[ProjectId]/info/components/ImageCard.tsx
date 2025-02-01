@@ -21,6 +21,8 @@ export const ImageCard = ({ href, imageSrc, alt, title }: ImageCardProps) => {
             fill
             className='rounded-lg object-cover'
             priority={false} // ✅ Avoids eager loading
+            placeholder='blur'
+            blurDataURL={imageSrc}
             loading='lazy'
           />
           <div className='absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-50'>
