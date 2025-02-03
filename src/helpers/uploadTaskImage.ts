@@ -31,7 +31,10 @@ export const uploadTaskImageClient = async ({
           })
 
         if (uploadedImageError) {
-          throw new Error("One of the images couldn't be uploaded")
+          throw new Error(
+            "One of the images couldn't be uploaded",
+            uploadedImageError,
+          )
         }
         if (uploadedImageData) pictures_path.push(uploadedImageData.path)
       } catch (error) {
@@ -56,5 +59,9 @@ export const uploadImageToBucketClient = async ({
       cacheControl: '86400',
       upsert: false,
     })
+  console.log(
+    '########################################################################',
+    error,
+  )
   return { data, error }
 }
